@@ -86,11 +86,16 @@ public class SinglyLinkedListImpl implements SinglyLinkedList<Integer> {
 	public boolean search(Integer data) {
 		boolean val = false;
 		Node tmp = head;
-		while(tmp.getNext()!=null) {
-			if (tmp.getData()==data) {
+		do {
+			if ((Integer)tmp.getData()==data) {
+				
+				System.out.println(tmp.getData());
+				System.out.println(data);
 				val=true;
+				break;
 			}
-		}
+			tmp=tmp.getNext();
+		} while(tmp.getNext()!=null);
 		return val;
 	}
 

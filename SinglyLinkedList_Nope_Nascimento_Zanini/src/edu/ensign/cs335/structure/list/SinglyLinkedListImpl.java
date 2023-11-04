@@ -15,13 +15,14 @@ public class SinglyLinkedListImpl implements SinglyLinkedList<Integer> {
 	public int getSize() {
 		int size = 1;
 		Node tmp = head;
-		while (tmp.getNext()!= null) {
-			System.out.print(tmp.getData()+" > ");
-			size++;
-			tmp = tmp.getNext();
+		try{
+			while (tmp.getNext()!= null) {
+				size++;
+				tmp = tmp.getNext();
+			}
+		} catch (Exception e) {
+			size = 0;
 		}
-		System.out.print(tmp.getData());
-		System.out.println();
 		return size;
 	}
 
@@ -29,19 +30,27 @@ public class SinglyLinkedListImpl implements SinglyLinkedList<Integer> {
 	public int getCount() {
 		int count = 1;
 		Node tmp = head;
+		try {
 		while (tmp.getNext()!= null) {
 			if (tmp.getData()!=null) {
 				count++;
 			}
 			tmp = tmp.getNext();
+		}}catch(Exception e) {
+			count = 0;
 		}
 		return count;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		boolean test= false;
+		try{
+			head.getNext();
+		}catch(Exception e) {
+			test = true;
+		}
+		return test;
 	}
 
 	@Override
@@ -70,16 +79,6 @@ public class SinglyLinkedListImpl implements SinglyLinkedList<Integer> {
 	public void insertHead(Integer data) {
 		Node tmp = head;
 		head = new Node(data);
-		/*Debug*/
-		System.out.print("Current head: "+data);
-		try {
-			if (tmp.getData()!= null) {
-				System.out.println(" Former: "+tmp.getData());
-			}
-		} catch(Exception e) {
-			System.out.println();
-		}
-		/*Debug*/
 		head.setNext(tmp);
 	}
 
@@ -132,6 +131,19 @@ public class SinglyLinkedListImpl implements SinglyLinkedList<Integer> {
 		}
 		tmp.setNext(tmp.getNext().getNext());
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		Node tmp = head;
+		String cont = "";
+		int i = 0;
+		while(tmp.getNext()!=null) {
+			cont=cont+tmp.getData()+" -> ";
+			tmp=tmp.getNext();
+		}
+		cont=cont+tmp.getData();
+		return cont;
 	}
 
 	@Override

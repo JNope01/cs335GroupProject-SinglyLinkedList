@@ -21,8 +21,8 @@ public class SinglyLinkedListDriver
 
     private SinglyLinkedListDriver() {
         this.linkedList = new SinglyLinkedListImpl();
-        //assert linkedList.getSize() == 0 && linkedList.getCount() == 0;
-        //assert linkedList.isEmpty();
+        assert linkedList.getSize() == 0 && linkedList.getCount() == 0;
+        assert linkedList.isEmpty();
 
         /// Checking if the insert function works
         linkedList.insertHead(6);

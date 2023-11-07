@@ -1,7 +1,13 @@
 package edu.ensign.cs335.structure.list;
 
 
-
+/**
+ * By: Jonathan Nope & Yuri Zanini
+ * SinglyLinkedListImpl class.
+ * Functional Backbone of the SinglyLinkedList class
+ * implementing all the functions.
+ * @param <T>
+ */
 public class SinglyLinkedListImpl<T> implements SinglyLinkedList<T> {
 	private Node<T> head;
 
